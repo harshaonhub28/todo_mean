@@ -1,0 +1,13 @@
+<h1>{{name}}</h1>
+
+<input type='checkbox'/>
+<input #new type='text' placeholder="What next?" (keyup.enter) = "add(new.value); new.value='' ">
+<button (click) = " add(new.value); new.value = '' "> Add </button>
+<hr/>
+
+<div  *ngFor = "let task of tasks">
+  <input type='checkbox'>
+  <input #box [(ngModel)] = 'task.task' (keyup.enter) = "update(task);">
+  <button (click) = 'delete(box.value)'> Delete </button>
+  <br>
+</div>
